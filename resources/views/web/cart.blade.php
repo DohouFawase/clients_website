@@ -111,7 +111,7 @@
    <button type="submit" class="kkiapay-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Payer
   </button>
-  <script amount="{{ Cart::getTotal() }}" callback="{{ route('about') }}" data="" url="<url-vers-votre-logo>"
+  <script amount="{{ Cart::getTotal() }}" callback="{{ route('success') }}" data="" url="<url-vers-votre-logo>"
       position="left" theme="black" sandbox="true" key="8f59a0e0f8a911eca56ad905c440058f"
       src="https://cdn.kkiapay.me/k.js"></script>
   @else

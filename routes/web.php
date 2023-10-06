@@ -10,7 +10,9 @@ use App\Http\Controllers\admin\commerce\ProductController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\web\CartController;
 use App\Http\Controllers\web\FrontController;
+
 use App\Http\Controllers\web\HomeController;
+use App\Http\Controllers\web\TranslationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +66,7 @@ Route::prefix("web")->group(function(){
    ]);
    Route:: get('conatct',[ FrontController::class, 'conatct'])->name('conatct');
    Route:: get('about',[ FrontController::class, 'about'])->name('about');
+   Route:: get('success',[ TranslationController::class, 'payment'])->name('success');
 
 
    Route:: get('cart', [CartController::class,'index'])->name('cart.panier');
