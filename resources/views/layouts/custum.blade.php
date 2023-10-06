@@ -33,15 +33,7 @@
     @include("components.web.scripts")
 
     <script src="https://cdn.kkiapay.me/k.js"></script>
-    <script amount="1000" 
-        callback="https://kkiapay-redirect.com"
-        data=""
-        url=""
-        position="right" 
-        theme="#0095ff"
-        sandbox="true"
-        key="8f59a0e0f8a911eca56ad905c440058f"
-        src="https://cdn.kkiapay.me/k.js"></script>
+   
    
 </body>
 </html>
