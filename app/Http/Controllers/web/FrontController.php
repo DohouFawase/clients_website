@@ -17,7 +17,7 @@ class FrontController extends Controller
         $products = Product::orderBy('created_at', 'asc')->with('category')->paginate(50);   
         
 
-      $categories = Categorie::orderBy('created_at', 'asc')->limit(4)->get();
+      $categories = Categorie::orderBy('created_at', 'asc')->get();
      
       
         return view("web.boutique", [
@@ -27,7 +27,7 @@ class FrontController extends Controller
     }
 
     public function blog(){
-        $posts = Post::orderBy('created_at', 'asc')->with('sections')->paginate(50);   
+        $posts = Post::orderBy('created_at', 'asc')->with('set')->paginate(50);   
         
 
         $sections = Section::orderBy('created_at', 'asc')->limit(4)->get();
@@ -72,10 +72,19 @@ class FrontController extends Controller
     }
 
     public function blogdetail(string $slug, $post){
-        $expecteSlug = $post->getPost(); 
-     if ($slug !== $expecteSlug ) {
+
+        $post = Post::find($post);
+
+        
+    if (!$post) {
+        // Gérer le cas où le post n'existe pas
+        abort(404);
+    }
+
+        $expectedSlug = $post->getSlug(); 
+     if ($slug !== $expectedSlug ) {
          # code...
-         return to_route('web.blogdetail', ["slug" => $expecteSlug, "product"=>$post]);
+         return to_route('web.blogdetail', ["slug" => $expectedSlug, "product"=>$post]);
      }
      $posts = Post::orderBy('created_at', 'asc')->limit(2)->get();
      return view('web.blogdetail', [
