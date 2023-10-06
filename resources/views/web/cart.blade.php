@@ -6,6 +6,11 @@
    <!-- component -->
    @if (Cart::getcontent()->count() >0)
    <div class=" relative overflow-x-auto shadow-md sm:rounded p-24">
+               @if ($message = Session::get('success'))
+               <div class="p-4 mb-3 bg-green-400 rounded">
+                  <p class="text-green-800">{{ $message }}</p>
+               </div>
+               @endif
 
          <table class="w-full tex-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700  uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -111,7 +116,7 @@
    <button type="submit" class="kkiapay-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Payer
   </button>
-  <script amount="{{ Cart::getTotal() }}" callback="{{ route('success') }}" data="" url="<url-vers-votre-logo>"
+  <script amount="{{ Cart::getTotal() }}" callback="{{ route('success') }}" data="" url="{{ route('success') }}"
       position="left" theme="black" sandbox="true" key="8f59a0e0f8a911eca56ad905c440058f"
       src="https://cdn.kkiapay.me/k.js"></script>
   @else

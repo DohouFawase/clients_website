@@ -16,7 +16,6 @@ class FrontController extends Controller
     public function boutique(){
         $products = Product::orderBy('created_at', 'asc')->with('category')->paginate(50);   
         
-
       $categories = Categorie::orderBy('created_at', 'asc')->get();
      
       

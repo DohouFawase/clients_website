@@ -2,6 +2,7 @@
 @section("title", $product->product_name)
 @section("content")
     <section class=" pt-24 overflow-hidden bg-white py-11  dark:bg-gray-800">
+       
         <div class="max-w-6xl px-4 py-4 mx-auto lg:py-8 md:px-6">
             <div class=" flex flex-wrap -mx-4">
                 <div class="w-ful px-4 md:w-1/2">

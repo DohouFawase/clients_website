@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use Cart;
 use Illuminate\Http\Request;
 use Kkiapay\Kkiapay;
 
@@ -24,9 +25,16 @@ class TranslationController extends Controller
         );
 
         $paymentResponse = $payment->verifyTransaction($request->get('transaction_id'));
-        dd($paymentResponse);
+        if($paymentResponse->status ==='SUCCESS'){
+            Cart::clear();
+            session()->flash('success', 'Paiment effectuer avec success.');
+        } else{
+            return redirect()->back();
 
-        return view("web.success");
+        }
+       
+
+        return view("home");
         
     }
 }

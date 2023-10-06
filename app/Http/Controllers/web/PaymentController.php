@@ -24,12 +24,10 @@ class PaymentController extends Controller
             $secret,
             $sandbox = true
         );
+
+        
         $paymentResponse = $kkiapay->verifyTransaction($request->get('transaction_id'));
-
-
         if ($paymentResponse->status == "SUCCESS") {
-
-          
             dd("Vous avez payez une somme de {$paymentResponse->amount}");
             //Enregistre les informations de la commande 
             Commande::create([]);
