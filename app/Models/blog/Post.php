@@ -23,9 +23,10 @@ class Post extends Model
         return $this->belongsTo(Section::class, 'section_id');
     }
 
-    public function getPost()
+
+    public function getSlug(): string
     {
-        return Str::slug($this->title);
-        
+       return Str::slug($this->title);  
     }
+  
 }

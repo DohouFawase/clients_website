@@ -1,45 +1,49 @@
 
 @extends("layouts.custum")
-@section("title", $post->title)
+@section("title",$post->title )
 @section("content")
 
 
 <main class="mt-24">
 
-    <div class="mb-4 md:mb-0 w-full mx-auto relative">
-      <div class="px-4 lg:px-0">
-        <h2 class="text-4xl font-semibold text-gray-800 leading-tight">
-           {{ $post->title}}
-        </h2>
-        <a 
-          href="#"
-          class="py-2 text-green-700 inline-flex items-center justify-center mb-2"
-        >
-          Cryptocurrency
-        </a>
-      </div>
+   <!-- 
+Install the "flowbite-typography" NPM package to apply styles and format the article content: 
 
-      <img src="{{ asset('storage/' . $post->post_img) }}" class="w-full object-cover lg:rounded" style="height: 28em;"/>
-    </div>
+URL: https://flowbite.com/docs/components/typography/ 
+-->
 
-    <div class="flex flex-col lg:flex-row lg:space-x-12">
+<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+  <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+      <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+          <header class="mb-4 lg:mb-6 not-format">
+              <address class="flex items-center mb-6 not-italic">
+                  <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                      <div>
+                          <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">{{$post->author}}</a>
 
-      <div class="px-4 lg:px-0 mt-12 text-gray-700 text-lg leading-relaxed w-full lg:w-3/4">
-    
+                          <p class="text-base text-gray-500 dark:text-gray-400"><time pubdate datetime="2022-02-08" title="February 8th, 2022">{{$post->date_pub}}</time></p>
+                      </div>
+                  </div>
+              </address>
+              <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{$post->title}}</h1>
+          </header>
 
-        <div class="border-l-4 border-gray-500 pl-4 mb-6 italic rounded text-bleu">
-            {{ $post->contenu}} <br>
-            <a href="{{ $post->video }}">Cliquez ic Pour vois Le reportage et N'oubliez pas de vous Abonnez a notre chaine youtybe</a>  
+          <figure><img src="{{ asset('storage/' . $post->post_img) }}" alt="">
+              <figcaption>Digital art by Anonymous</figcaption>
+          </figure>
+
+          <p class="text-xl">
+            {{$post->contenu}}
+          </p>
+      </article>
+  </div>
+</main>
 
 
-        </div>
 
-        
-      </div>
 
-      
-    </div>
-  </main>
+
+
 
 
 

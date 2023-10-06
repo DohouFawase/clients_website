@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::prefix('admin')-> middleware('auth') -> name('admin.')->group(function(){
+Route::prefix('admin')-> middleware(['auth', 'isAdmin']) -> name('admin.')->group(function(){
    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
    Route::resource('categorie', CategorieController::class)->except(["show"]);
    Route::resource('section', SectionController::class)->except(["show"]);

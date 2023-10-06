@@ -29,6 +29,7 @@
                         <th scope="col" class="px-6 py-3">
                             <span>Actions</span>
                         </th>
+<<<<<<< HEAD
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
@@ -41,6 +42,83 @@
                             <th class="px-6  py-4 font-semibold text-gray-900  dark:text-white">
                                 <span>{{ $product->name }}</span>
                             </th>
+=======
+            </thead>
+            <tbody>
+              @foreach ($products as $product)
+              <tr class="bg-white border-b dark:bg-gray-700 hover:bg-gray-5 dark:hover:bg-slate-500">
+               <th class="w-10 h-10 rounded-full">
+                 <img src="{{ asset('storage/' . $product->attributes->image) }}" alt="" class="w-full rounded-sm ">
+               </th>
+   
+               <th class="px-6  py-4 font-semibold text-gray-900  dark:text-white">
+                  <span>{{$product->name}}</span>
+               </th>
+   
+               <th class="px-6 py-4">
+                  <form action="{{route('cart.cartUpdate')}}" method="POST">
+                     @csrf
+                     <input type="hidden" name="id" value="{{$product->id}}">
+                  <input type="number" name="quantity"  value="{{$product->quantity}}" id="" class="bg-gray-50  w-14 font-medium h-6  border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder:bg-gray-400  dark:focus:border-blue-500 mb-4">
+                        <button type="submit" class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">update</button>
+                  </form>
+               </th>
+               <th class="px-6 py-4 font-semibold text-gray-900  dark:text-white">
+                  <span>{{$product->price}} Cfa</span>
+               </th>
+   
+               <th class="px-6 py-4 font-semibold text-gray-900  dark:text-white">
+              <form action="{{route('cart.removeCart')}}" method="post">
+               @csrf
+               <input type="hidden" name="id" value="{{$product->id}}">
+
+               <button  class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 "  >Delete</button>
+              </form>
+               </th>
+   
+   
+            </tr>
+   
+              @endforeach
+   
+   
+            </tbody>
+   
+            
+         </table>
+         
+         <div class="flex gap-5 justify-around items-center pt-4">
+
+            <form action="{{route('cart.clearAll')}}" method="post">
+               @csrf
+               <button class="p-3 bg-red-950 text-white uppercase dark:hover:bg-red-500 hover:bg-slate-800  rounded" value="{{ $product->id }}" >Vider le Panier</button>
+              </form>
+         
+           
+         </div>
+    
+ 
+    
+
+
+      <hr class="pb-6 mt-6">
+      <div class="pt-6">
+         <p class="pb-6 text-2xl font-bold text-primary-950 underline ">Total Panier</p>
+         
+         <div class="max-w-full bg-slate-800 rounded-sm block py-4 px-6">
+            <div class="flex justify-between pb-4 items-center border-b-2 ">
+               <p class="font-bold text-white ">Subtotal</p>
+               <p class="font-bold text-white ">{{Cart::getSubTotal()}}  Cfa</p>
+            </div>
+            <div class="flex justify-between  pt-4 items-center ">
+               <p  class="font-bold text-white ">Total</p>
+               <p  class="font-bold text-white ">{{Cart::getTotal()}} fcaf </p>
+            </div>
+            
+         </div>
+        
+      </div>
+>>>>>>> 1aa2aa645c83601943fc54a1d1ef64b50117ae86
 
                             <th class="px-6 py-4">
                                 <form action="{{ route('cart.cartUpdate') }}" method="POST">
@@ -62,6 +140,7 @@
                                 </form>
                             </th>
 
+<<<<<<< HEAD
 
                         </tr>
                     @endforeach
@@ -73,6 +152,11 @@
             </table>
 
             <div class="flex gap-5 justify-around items-center pt-4">
+=======
+   <button class="p-3 bg-red-950 text-white uppercase dark:hover:bg-red-500 hover:bg-slate-800  rounded  kkiapay-button" >Vider le Panier</button>
+ 
+  @else
+>>>>>>> 1aa2aa645c83601943fc54a1d1ef64b50117ae86
 
                 <form action="{{ route('cart.clearAll') }}" method="post">
                     @csrf
