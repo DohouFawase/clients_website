@@ -25,5 +25,9 @@ class Commande extends Model
         return $this->belongsToMany(Product::class, 'product_id');
     }
 
+    public function payment()
+    {
+        return $this->hasOne(payment::class);
+    }
     
 }

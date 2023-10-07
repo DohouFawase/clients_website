@@ -66,7 +66,8 @@ Route::prefix("web")->group(function(){
    ]);
    Route:: get('conatct',[ FrontController::class, 'conatct'])->name('conatct');
    Route:: get('about',[ FrontController::class, 'about'])->name('about');
-   Route:: get('success',[ TranslationController::class, 'payment'])->name('success');
+   Route:: get('payment',[ TranslationController::class, 'payment'])->name('payment');
+   Route:: get('chekinformation',[ TranslationController::class, 'information'])->name('information');
 
 
    Route:: get('cart', [CartController::class,'index'])->name('cart.panier');

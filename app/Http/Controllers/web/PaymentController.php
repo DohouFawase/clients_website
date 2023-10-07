@@ -5,7 +5,6 @@ namespace App\Http\Controllers\web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Kkiapay\Kkiapay;
-use App\Models\admin\commerce\Commande;
 use Cart;
 
 
@@ -30,7 +29,7 @@ class PaymentController extends Controller
         if ($paymentResponse->status == "SUCCESS") {
             dd("Vous avez payez une somme de {$paymentResponse->amount}");
             //Enregistre les informations de la commande 
-            Commande::create([]);
+           
             //Envoi un mail de sucess
             //Mail::to("dsdsdsd@gmma")->send();
             //Envoi une section success to notifier dans la view

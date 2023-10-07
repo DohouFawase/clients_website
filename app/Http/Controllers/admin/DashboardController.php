@@ -38,7 +38,6 @@ class DashboardController extends Controller
     public function calculateTotalRevenue()
     {
         $totalRevenue = CmdDetail::join('commandes', 'cmd_details.cmd_id', '=', 'commandes.id')
-            ->where('commandes.statut', 'livré')
             ->selectRaw('SUM(cmd_details.prix_unit * cmd_details.quantité) as totalRevenue')
             ->first()
             ->totalRevenue;

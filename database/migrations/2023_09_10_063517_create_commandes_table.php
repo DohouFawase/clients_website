@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->enum('statut', ["en cours", "expedié", "livré"])->nullable();
-            $table->dateTime('date_cmd');
             $table->string('adr_livr');
             $table->timestamps();
         });
