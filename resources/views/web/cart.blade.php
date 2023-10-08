@@ -113,10 +113,6 @@
    </div>
 
 
-      <a href="
-   {{ route('information') }}
-   "> Valider la commande </a>
-
 
    <button type="submit" class="kkiapay-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Payer

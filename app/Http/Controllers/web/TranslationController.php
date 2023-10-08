@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
-use App\Models\admin\commerce\CmdDetail;
 use Cart;
 use App\Models\admin\commerce\Commande;
 use Illuminate\Http\Request;
@@ -13,10 +12,6 @@ class TranslationController extends Controller
 {
     //
 
-
-    public function information(){
-            return view('web.chekinformation');
-    }
     public function payment(Request $request) 
     {
         $public_key = "8f59a0e0f8a911eca56ad905c440058f";
@@ -31,11 +26,20 @@ class TranslationController extends Controller
         );
 
         $paymentResponse = $payment->verifyTransaction($request->get('transaction_id'));
+
+      
+
         if($paymentResponse->status ==='SUCCESS'){
+
+        $adr_livr = $request->input('adr_livr');
+
             $order =  Commande::create([
-            'user_id' => auth()->id(),
-            
+            'adr_livr' => $adr_livr ,
+            'user_id' => auth()->id()
+           
             ]);
+
+            dd($order);
             Cart::clear();
             session()->flash('success', 'Paiment effectuer avec success.');
         } else{
