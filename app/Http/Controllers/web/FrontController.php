@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\web\ContactFormRequest;
+use App\Mail\USerContactMail;
 use App\Models\admin\commerce\Categorie;
 use App\Models\admin\commerce\Product;
 use App\Models\blog\Post;
 use App\Models\blog\Section;
 use Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -94,6 +97,19 @@ class FrontController extends Controller
      
  }
 
+ public function contactForm(ContactFormRequest $request)
+ {
+
+
+   $mail= Mail::send(new USerContactMail($request->validated()));
+  
+
+   return back()->with('success', 'Voytre Requêtte a ete envpyez ave suucess');
+       
+
+
+    
+ }
 
    
 }

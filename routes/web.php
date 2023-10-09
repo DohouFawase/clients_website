@@ -65,7 +65,10 @@ Route::prefix("web")->group(function(){
       'slug'=>$slugReguest
    ]);
    Route:: get('conatct',[ FrontController::class, 'conatct'])->name('conatct');
+   Route:: post('contact',[ FrontController::class, 'contactForm'])->name('contact.contactForm');
+
    Route:: get('about',[ FrontController::class, 'about'])->name('about');
+ 
    Route:: get('payment',[ TranslationController::class, 'payment'])->name('payment');
    Route:: get('chekinformation',[ TranslationController::class, 'information'])->name('information');
 
