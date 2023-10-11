@@ -54,6 +54,10 @@ Route::prefix("web")->group(function(){
    Route:: get('categorie/{slug}-{categorie}',[ FrontController::class, 'categorie'])->name('categorie')->where([
       'categorie'=> $idregex,
       'slug'=>$slugReguest
+   ]);
+   Route:: get('section/{slug}-{section}',[ FrontController::class, 'section'])->name('section')->where([
+      'section'=> $idregex,
+      'slug'=>$slugReguest
    ]);;
    Route:: get('blog',[ FrontController::class, 'blog'])->name('blog');
    Route:: get('productdetail/{slug}-{product}',[ FrontController::class, 'show'])->name('show')->where([

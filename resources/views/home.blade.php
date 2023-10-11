@@ -13,12 +13,11 @@
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">BIienvenue sur notre site dedié à la vente des equipement sportive</h2>
-        <p class="mt-6 text-2xl  leading-8 text-webjaune text-bold   ">Nous sommes là pour vous aider à atteindre vos objectis de fitness en vous fournissant des produicts 
-            de haute performance et en vous offrant un service
-            clients exceotionel.Que vous soyez un athlète proffesionnel ou débutant,
-            nous avons tous ce dont vous avez besoins pour vous mettre en forme et vous sentir 
-            bien dans votre corps.Alors qu'attendez-vous pour commencer votre parcour sportives avec nous..?
+        <h2 class="text-2xl text-center font-bold tracking-tight text-white sm:text-2xl  uppercase"> Bienvenue sur notre site spécialisé dans la vente d'équipements sportifs, dédié à votre forme et à votre bien-être. </h2>
+        <p class="mt-6 text-2xl text-center leading-8 text-webjaune text-medium   ">Nous sommes là pour vous accompagner dans l'atteinte de vos  <span class="font-medium text-white  uppercase">objectifs de fitness</span> en vous proposant des produits performants et un service client exceptionnel.
+             Que vous soyez   un   <span  class="font-medium text-white  uppercase">athlète professionnel</span>   ou que vous  <span  class="font-medium text-white  uppercase"> débutiez</span>, 
+             nous mettons à votre disposition tout ce dont vous avez besoin pour vous sentir bien dans votre corps et
+             <span class="font-medium text-white  uppercase">  optimiser vos performances sportives</span> . Alors, prêt à débuter votre parcours sportif avec nous ?
         </p>
         </div>
     </div>
@@ -26,8 +25,8 @@
 
 <section class="product-section px-6  mt-16">
     <div class="mb-6 text-center">
-        <h1 class="text-2xl font-bold ">Nos product</h1>
-        <p  class="text-2xl ">Donnez le meilleur de  vous meme avec nos product. <br/> Votre allier pour des performanec exceptionnells</p>
+        <h1 class="text-2xl font-bold uppercase">Nos product</h1>
+        <p  class="text-2xl ">Votre chemin vers l'exceptionnel commence avec nos produits de qualité. <br> Votre allié pour des performances au sommet.</p>
     </div>
     <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-14 p-4">
        
@@ -50,7 +49,7 @@
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center ">
         <div class="mx-auto max-w-2xl lg:mx-0">
-        <p class="mt-6  mb-6 text-white leading-8 text-2xl font-bold ">Découvrez notre section exceptionnelle d'équipememnts sportives de qualités superieur votre corps merite le meilleurs.
+        <p class="mt-6  mb-6 text-black leading-8 text-2xl font-bold ">Explorez notre collection d'équipements sportifs d'exception. Votre corps mérite l'excellence.
         </p>
         <a href="#" class="uppercase  py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
           Visitez La boutique
@@ -61,25 +60,26 @@
 
    
 
-<section class="product-section px-6  mt-16">
-    <div class="mb-6 text-center">
-        <h1 class="text-3xl font-bold ">From the blog</h1>
-        <p  class="text-2xl ">Rejoignez notre communautes passionées de sport et découvrez des articles inspirant sur les dernièer tenddance, <br> les astuces d'entrenements, les recette de nutitions 
-        sportive et bien plus enconre!!!!
-        </p>
-    </div>
-    <section class="flex items-center bg-gray-100 lg:h-screen font-poppins dark:bg-gray-900 ">
-        <div class="justify-center max-w-6xl px-4 py-4 mx-auto lg:py-0">
-            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2">
-              
-                @foreach ($posts as $post)
-        @include('card.blog')
-        @endforeach
-               
-            </div>
+<aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800 myy-8">
+    <div class="px-4 mx-auto max-w-screen-xl">
+        <div class="mb-6 text-center">
+            <h1 class="text-3xl font-bold ">From the blog</h1>
+            <p  class="text-2xl ">Rejoignez notre communautes passionées de sport et découvrez des articles inspirant sur les dernièer tenddance, <br> les astuces d'entrenements, les recette de nutitions 
+            sportive et bien plus enconre!!!!
+            </p>
         </div>
-    </section>
-</section>
+        
+        <div class="flex justify-center flex-wrap gap-5 md:flex-wrap  lg:flex-none">
+           
+            @foreach ($posts as $post)
+            @include('card.blog')
+            @endforeach
+            
+
+            
+        </div>
+    </div>
+  </aside>
     
 
 

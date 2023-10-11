@@ -30,10 +30,9 @@
     </div>
     <div class="flex flex-wrap py-10 -mx-3">
     <div class="w-full px-4 mb-11 md:w-1/2 lg:w-4/12 lg:mb-0">
-    <a href="#" class="inline-block mb-4 text-2xl font-bold dark:text-gray-400">Logo</a>
+    <a href="#" class="inline-block mb-4 text-2xl font-bold dark:text-gray-400">McBonaSport</a>
     <p class="text-base font-normal leading-6 lg:w-64 dark:text-gray-400">
-    Lorem ipsum dor amet Lorem ipsum dor amet Lorem ipsum dor Lorem ipsum dor amet Lorem ipsum
-    dor amet Lorem ipsum dor
+        Entraînez-vous vers l'excellence avec notre site alliant commerce et passion sportive. Explorez notre vaste sélection d'équipements de pointe, conçus pour des performances optimales
     </p>
     </div>
     <div class="w-full px-4 md:w-1/4 lg:w-2/12 mb-11 lg:mb-0">

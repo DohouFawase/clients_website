@@ -59,6 +59,16 @@ class FrontController extends Controller
 
     }
 
+    public function section(string $slug,Section $section){
+        $posts = $section->posts;
+     
+        return view('web.section', [
+         "posts" =>$posts,
+         'section'=>$section
+        ]);
+ 
+     }
+
     public function show(string $slug,Product $product){
            $expecteSlug = $product->getSlug(); 
         if ($slug !== $expecteSlug ) {
