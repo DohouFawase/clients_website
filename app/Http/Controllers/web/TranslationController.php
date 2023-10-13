@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ReceiptMail;
+
 use Cart;
 use App\Models\admin\commerce\Commande;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Kkiapay\Kkiapay;
 
 class TranslationController extends Controller
@@ -25,30 +28,40 @@ class TranslationController extends Controller
             $sandbox = true
         );
 
-        $paymentResponse = $payment->verifyTransaction($request->get('transaction_id'));
-
-      
+       
+        
+       
 
         if($paymentResponse->status ==='SUCCESS'){
 
-        $adr_livr = $request->input('adr_livr');
-
+        $adr_livr = $request->get('adr_livr');
+     
+            
             $order =  Commande::create([
             'adr_livr' => $adr_livr ,
             'user_id' => auth()->id()
-           
             ]);
 
-            dd($order);
+            $user = auth()->user();
+            $products = Cart::getContent();
+            $totalAmont = Cart::getTotal();
+          $mail = Mail::to($user->email)->send(new ReceiptMail($order, $products, $totalAmont) );
+
+           
             Cart::clear();
             session()->flash('success', 'Paiment effectuer avec success.');
+        return view("web.payment", [
+            'products' => $products,
+            "totalAmont" => $totalAmont
+        ]);
+
+
         } else{
             return redirect()->back();
 
         }
        
 
-        return view("web.payment");
         
     }
 }
