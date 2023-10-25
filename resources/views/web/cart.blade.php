@@ -55,7 +55,7 @@
                   </form>
                </th>
                <th class="px-6 py-4 font-semibold text-gray-900  dark:text-white">
-                  <span>{{$product->price}} Cfa</span>
+                  <span>{{$product->price}} XOF</span>
                </th>
    
                <th class="px-6 py-4 font-semibold text-gray-900  dark:text-white">
@@ -99,11 +99,11 @@
          <div class="max-w-full bg-slate-800 rounded-sm block py-4 px-6">
             <div class="flex justify-between pb-4 items-center border-b-2 ">
                <p class="font-bold text-white ">Subtotal</p>
-               <p class="font-bold text-white ">{{Cart::getSubTotal()}}  Cfa</p>
+               <p class="font-bold text-white ">{{Cart::getSubTotal()}}  XOF</p>
             </div>
             <div class="flex justify-between  pt-4 items-center ">
                <p  class="font-bold text-white ">Total</p>
-               <p  class="font-bold text-white ">{{Cart::getTotal()}} fcaf </p>
+               <p  class="font-bold text-white ">{{Cart::getTotal()}} XOF </p>
             </div>
             
          </div>

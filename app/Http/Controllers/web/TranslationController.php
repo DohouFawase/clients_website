@@ -28,8 +28,7 @@ class TranslationController extends Controller
             $sandbox = true
         );
 
-       
-        
+        $paymentResponse = $payment->verifyTransaction($request->get('transaction_id'));
        
 
         if($paymentResponse->status ==='SUCCESS'){

@@ -77,8 +77,8 @@ Route::prefix("web")->group(function(){
    Route:: get('chekinformation',[ TranslationController::class, 'information'])->name('information');
 
 
-   Route:: get('cart', [CartController::class,'index'])->name('cart.panier');
-   Route::post('cart', [CartController::class,'addToCart'])->name('cart.addTocart');
+   Route:: get('cart', [CartController::class,'index'])->name('cart.panier')->middleware('auth');
+   Route::post('cart', [CartController::class,'addToCart'])->name('cart.addTocart')->middleware('auth');
    Route::post('cartUpdate', [CartController::class,'cartUpdate'])->name('cart.cartUpdate');
    Route::post('removeCart', [CartController::class,'removeCart'])->name('cart.removeCart');
    Route::post('clearAll', [CartController::class,'clearAll'])->name('cart.clearAll');

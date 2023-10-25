@@ -18,7 +18,7 @@
                         </p>
 
                         <p class="inline-block mb-8 text-4xl font-bold text-gray-700 dark:text-gray-400 ">
-                            <span>{{$product->price}}</span>
+                            <span>{{$product->price}} XOF</span>
                         </p>
                         
 

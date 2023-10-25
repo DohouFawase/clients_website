@@ -3,7 +3,7 @@
     <div class="pt-4">
         <h2 class="text-2xl text-balck "> {{$product->product_name}} </h2>
         <div class="flex items-end justify-between mb-5 ">
-            <p> {{$product->price }} </p>
+            <p> {{$product->price }} XOF </p>
                 
         </div>
      
