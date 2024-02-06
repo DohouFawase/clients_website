@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\web\ContactFormRequest;
 use App\Mail\USerContactMail;
 use App\Models\admin\commerce\Categorie;
+use App\Models\admin\commerce\CmdDetail;
 use App\Models\admin\commerce\Product;
 use App\Models\blog\Post;
 use App\Models\blog\Section;
@@ -21,10 +22,11 @@ class FrontController extends Controller
         
       $categories = Categorie::orderBy('created_at', 'asc')->get();
      
-      
+      $produitsVendus = $this->bestproduct();
         return view("web.boutique", [
             'categories' => $categories,
-            'products' => $products
+            'products' => $products,
+            'produitsVendus'    =>$produitsVendus
         ]);
     }
 
@@ -120,6 +122,23 @@ class FrontController extends Controller
 
     
  }
+
+ public function bestproduct()
+ 
+{
+    $produitsVendus = CmdDetail::join('produits', 'cmd_details.produit_id', '=', 'produits.id')
+    ->join('commandes', 'cmd_details.cmd_id', '=', 'commandes.id')
+    ->selectRaw('produits.*, SUM(cmd_details.prix_unit * cmd_details.quantité) as totalRevenue')
+    ->groupBy('produits.id')
+    ->orderBy('totalRevenue', 'DESC')
+    ->take(8)
+    ;
+
+
+    return  $produitsVendus;
+
+ 
+}
 
    
 }
