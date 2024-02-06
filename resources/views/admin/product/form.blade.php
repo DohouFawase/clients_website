@@ -31,8 +31,10 @@
                         </div>
 
                         <div class="mb-3">
-                            @if (isset($product->image))
-                            <img src="{{ $product->image }}" alt="">
+                            @if ("/storage/images/{{ $product->image }}")
+                            <img src="{{asset('storage/' . $product->image) }}">
+                            @else
+                                <p>No image found</p>
                             @endif
                             @include('shared.file', ["name" => "image", "class" => "col", "value" => $product->image])
                         </div>

@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="
     https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
     ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>@yield('title') | McBonaSport</title>
     @include('components.web.heade')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -46,6 +47,6 @@
 
     <script src="https://cdn.kkiapay.me/k.js"></script>
 
-   
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>

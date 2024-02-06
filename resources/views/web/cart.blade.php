@@ -1,6 +1,6 @@
 @extends("layouts.custum")
 
-@section('title', 'Shopping Cart')
+@section('title', 'Mon Panier')
 
 @section("content")
    <!-- component -->
@@ -122,8 +122,15 @@
       src="https://cdn.kkiapay.me/k.js"></script>
   @else
 
-  <div class=" bg-red-900 rounded-sm ml-96 m max-w-sm  max-h-sm flex justify-center  mt-24">
-   <p class=" text-2xl p-14 text-green-500 font-semibold uppercase">Votre Panier est Vide.</p>
+  <div class=" flex justify-center items-center ">
+   <img src="{{asset('web/imgs/png/cart-empty.png')}}" alt="">
+
+<div class="">
+   <p class=" text-4xl text-gray-600 font-bold pb-5 ">Votre panier est vide !</p>
+   <p class="  text-gray-600 font-bold pb-5 ">Votre quête du produit parfait dans les univers de notre site n'est pas encore achevée.</p>
+   <a href="" class="text-white bg-gray-600 rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Découvrez nos meilleures ventes</a>
+</div>
+
   </div>
 
   

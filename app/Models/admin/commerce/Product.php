@@ -41,5 +41,23 @@ class Product extends Model
         
     }
 
+
+
+    public function delete()
+    {
+        if ($this->delete()) {
+            // ... code de suppression supplémentaire ...
+
+            $imagePath = 'public/storage/' . $this->image;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
     
 }
