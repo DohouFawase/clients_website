@@ -23,7 +23,7 @@ class HeaderFormRequest extends FormRequest
     {
         return [
             //
-            'image'=> ['required', 'mimetypes:text/plain', 'mimes:png,jpg,svg,jpeg'],    
+            'carousel'=> ['required', "image",'mimes:png,jpg,svg,jpeg'],    
         ];
     }
 }

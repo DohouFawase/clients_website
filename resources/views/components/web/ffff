@@ -6,7 +6,7 @@
     </a>
     <div class="flex items-center md:order-2">
         <a href="  {{ route('cart.panier') }}" class="mr-6  relative inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="cart-total">
-          <i class="fa-solid fa-cart-shopping"></i> <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{Cart::getContent()->count()}}</div>  </a>
+          <i class="fa-solid fa-cart-shopping"></i> <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"></div>  </a>
         @if (Auth::check())
         <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <p class="w-8 h-8 rounded-full text-white text-2xl font-bold ">
