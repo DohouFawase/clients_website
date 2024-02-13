@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\commerce\CommandeController;
 use App\Http\Controllers\admin\commerce\PaymentController;
 use App\Http\Controllers\admin\commerce\ProductController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\HeaderController;
 use App\Http\Controllers\web\CartController;
 use App\Http\Controllers\web\FrontController;
 
@@ -44,6 +45,7 @@ Route::prefix('admin')-> middleware(['auth', 'isAdmin']) -> name('admin.')->grou
    Route::resource('payment', PaymentController::class)->except(["show"]);
    Route::resource('post', PostController::class)->except(['show']);
    Route::resource('product', ProductController::class)->except(['show']);
+   Route::resource('carousel', HeaderController::class)->except(['show']);
 });
 Auth::routes();
 

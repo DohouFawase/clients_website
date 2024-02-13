@@ -15,8 +15,8 @@ class HeaderController extends Controller
     public function index()
     {
         //
-        $headers = Header::orderBy('published_at', 'desc')->paginate(12)->get();
-        return view ('',[
+        $headers = Header::orderBy('published_at', 'desc')->paginate(12);
+        return view ('admin.carousel.index',[
             'headers' => $headers
         ]);
     }
@@ -27,9 +27,9 @@ class HeaderController extends Controller
     public function create()
     {
         //
-        $headers = new Header();
-        return view('', [
-            'headers'=>  $headers,
+        $header = new Header();
+        return view('admin.carousel.form', [
+            'header'=>  $header,
         ]);
     }
 
@@ -39,14 +39,17 @@ class HeaderController extends Controller
     public function store(HeaderFormRequest $request)
     {
         //
-        $carousel= $request->validated();
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('carousel', 'public');
-            $validatedData["image"] = $imagePath;
-          
+        $validatedData= $request->validated();
+        dd($validatedData);
+
+
+        if ($request->hasFile('carousel')) {
+            $imagePath = $request->file('carousel')->store('carousel', 'public');
+            $validatedData["carousel"] = $imagePath;  
         }
-        $header = Header::created($carousel);
-     return to_route("admin..index")->with("success", "Votre Image a été Ajouter avec suceess");
+        $header = Header::created($validatedData);
+
+     return to_route("admin.carousel.index")->with("success", "Votre Image a été Ajouter avec suceess");
 
     }
 

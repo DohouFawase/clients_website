@@ -2,36 +2,50 @@
 
 @section("content")
 
-<div class="carousel-section">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-         
-        </div>
-        <div class="swiper-pagination"></div>
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="{{ asset('web/imgs/22977_b.jpg') }}" alt="">
       </div>
-</div>
+      <div class="swiper-slide">       
+         <img src="{{ asset('web/imgs/22986_b_002.jpg') }}" alt="">
+      </div>
+      <div class="swiper-slide">       
+         <img src="{{ asset('web/imgs/22980_b_002.jpg') }}" alt="">
+      </div>
+      <div class="swiper-slide">    
+            <img src="{{ asset('web/imgs/22987_b_002.jpg') }}" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="{{ asset('web/imgs/22996_b_002.jpg') }}" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="{{ asset('web/imgs/23010_b_002.jpg') }}" alt="">
+        
+      </div>
+    </div>
+  </div>
 
 
 
 
 
 <div class="categorie-section">
-    <div class="">
-        <div class=" grid grid-cols-4">
-            <div class="im-cate flex place-items-center w-46">
+    <div class="container-lg">
+        <div class=" hidden md:grid md:grid-cols-4 gap-4">
+            <div class="im-cate flex place-items-center ">
                 <i class="fas fa-star fa-2x"></i> 
                 <p> 23 ans d'expertise à votre service </p>
             </div>
-            <div class="im-cate flex place-items-center w-46">
+            <div class="im-cate flex place-items-center ">
                 <i class="fas fa-shopping-cart fa-2x"></i> 
                 <p> + de 15 000 références choisies par nos experts </p>
             </div>
-            <div class="im-cate flex place-items-center w-46">
+            <div class="im-cate flex place-items-center ">
                 <i class="fas fa-truck fa-2x"></i> 
                 <p> Livraison en magasin offerte dès 200 euros d'achat  </p>
             </div>
-            <div class="im-cate flex place-items-center   w-46">
+            <div class="im-cate flex place-items-center   ">
              <i class="fas fa-comments fa-2x"></i>
                 <p> Une équipe clientèle à votre écoute </p>
             </div>
@@ -46,7 +60,7 @@
 
 <div class="categorie-section">
     <div class="">
-        <div class="grid  lg:grid-cols-4 s">
+        <div class="grid lg:grid-cols-4 ">
             <div class="im-cate flex place-items-center w-46">
                
             </div>
@@ -67,12 +81,12 @@
 </div>
 
 <div class="recomation p-4">
-    <div class="grid  grid-cols-5 gap-3 ">
+    <div class="grid  grid-cols-2 md:grid-cols-4  lg:grid-cols-5  xl:grid-cols-6 gap-6 ">
         
         @foreach ($products as $product)
         <div class="card">
             <a href="{{route('show',['slug'=> $product->getSlug(),'product' => $product->id])}}">
-              <img src="{{ asset('storage/' . $product ->image) }}" alt="{{ $product->name }}">
+              <img src="{{ asset('storage/' . $product ->image) }}" alt="{{ $product->name }}" class="w-full">
               <div class="card-body">
                 <h3 class="card-title">{{ $product->product_name }}</h3>
                 <h3 class="card-title">{{ $product->price }}</h3>
@@ -97,10 +111,10 @@
 
 <div class="Categorie">
     <div class="">
-        <div class="grid grid-cols-4 p-4 gap-4 place-items-center justify-center place-content-center ">
+        <div class="grid grid-cols-4  p-4 gap-4 place-items-center justify-center place-content-center ">
             @foreach ($categories as $categorie)
             <ul >
-                <li ><a href="{{route('categorie',['slug'=> $categorie->getSlug(),'categorie' => $categorie->id])}}" >{{$categorie->name}}</a></li>
+                <li class="bg-gray-200 w-48 flex justify-center p-4"><a href="{{route('categorie',['slug'=> $categorie->getSlug(),'categorie' => $categorie->id])}}" class="text-md  font-bold" >{{$categorie->name}}</a></li>
             </ul>
              @endforeach
         </div>
@@ -135,26 +149,10 @@
 
 
 
-
-
 <div class="other-carousel">
     
 </div>
 
-   
-
-
-    
-
 
 @endsection
 
-<script>
-    var swiper = new Swiper(".mySwiper", {
-      direction: "vertical",
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-  </script>
